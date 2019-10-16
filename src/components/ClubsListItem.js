@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const ClubsListItem = props => {
-  console.log('test', props);
   return (
     <div>
       <h3>{props.club}</h3>

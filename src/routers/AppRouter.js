@@ -5,7 +5,7 @@ import NotFound from '../components/NotFound';
 import AddUpdate from '../components/AddUpdate';
 import Dashboard from '../components/Dashboard';
 import Info from '../components/Info';
-import ClubsList from '../components/ClubsList';
+import Clubs from '../components/Clubs';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -14,7 +14,7 @@ const AppRouter = () => (
       <Switch>
         <Route path='/' component={Dashboard} exact={true} />
         <Route path='/add' component={AddUpdate} />
-        <Route path='/clubs' component={ClubsList} />
+        <Route path='/clubs' component={Clubs} />
         <Route path='/info' component={Info} />
         <Route component={NotFound} />
       </Switch>
