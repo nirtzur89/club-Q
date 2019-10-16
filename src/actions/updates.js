@@ -7,6 +7,7 @@ export const addUpdate = ({
   moving = true,
   estimation = 0,
   freeText = '',
+  bouncers = '',
   createdAt = undefined
 } = {}) => ({
   type: 'ADD_UPDATE',
@@ -17,6 +18,7 @@ export const addUpdate = ({
     moving,
     createdAt,
     estimation,
+    bouncers,
     freeText
   }
 });
