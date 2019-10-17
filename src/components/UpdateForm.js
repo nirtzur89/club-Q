@@ -13,47 +13,90 @@ export default class UpdateForm extends React.Component {
   }
   state = {
     club: '',
-    people: 0,
-    moving: true,
-    bouncers: '',
-    createdAt: moment(),
-    estimation: 0,
+    people: '',
+    estimation: '',
+    moving: '',
+    rejection: '',
     freeText: '',
-    error: ''
+    createdAt: 0,
+    error: '',
+    clubs: [
+      'BERGHAIN',
+      'KITKAT',
+      'RENATE',
+      'SCHWUZ',
+      'RITTER-BUTZKE',
+      'GRIESMUELE',
+      'LAB-O-RATORY',
+      'ABOUT-BLANK',
+      'KATER-BLAU'
+    ],
+    peopleOptions: [
+      'No Q',
+      '10 Clubers or less',
+      '10 - 30 Clubers',
+      '30 - 60 Clubers',
+      '60 - 100 Clubers',
+      'Over 100 Clubers'
+    ],
+    rejectionOptions: [
+      'Letting everybody in',
+      'Low rejection rate',
+      'Medium rejection rate',
+      'Picky bouncers'
+    ],
+    movingOptions: [
+      'Moving fast',
+      'Moving usually',
+      'Moving slowly',
+      'Not moving'
+    ]
   };
-  onDescriptionChange = e => {
-    const description = e.target.value;
-    this.setState(() => ({ description }));
+  onClubChange = e => {
+    const club = e.target.value;
+    if (club !== '') {
+      this.setState(() => ({ club }));
+    }
+  };
+  onPeopleChange = e => {
+    const people = e.target.value;
+    this.setState(() => ({ people }));
+  };
+  onEstimationChange = e => {
+    const estimation = e.target.value;
+    if (!estimation || estimation.match(/^\d{1,}?$/)) {
+      this.setState(() => ({ estimation }));
+    }
+  };
+  onMovingChange = e => {
+    const moving = e.target.value;
+    this.setState(() => ({ moving }));
+  };
+  onRejectionChange = e => {
+    const rejection = e.target.value;
+    this.setState(() => ({ rejection }));
   };
   onNoteChange = e => {
-    const note = e.target.value;
-    this.setState(() => ({ note }));
-  };
-  onAmountChange = e => {
-    const amount = e.target.value;
-    if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
-      this.setState(() => ({ amount }));
-    }
-  };
-  onDateChange = createdAt => {
-    if (createdAt) {
-      this.setState(() => ({ createdAt }));
-    }
-  };
-  onFocusChange = ({ focused }) => {
-    this.setState(() => ({ focused }));
+    const freeText = e.target.value;
+    this.setState(() => ({ freeText }));
   };
   onSubmit = e => {
     e.preventDefault();
-    if (!this.state.description || !this.state.amount) {
-      this.setState(() => ({ error: 'please provide description and amount' }));
+    if (!this.state.club || !this.state.estimation) {
+      this.setState(() => ({
+        error: 'please provide club name and time estimation'
+      }));
     } else {
       this.setState(() => ({ error: '' }));
       this.props.onSubmit({
-        description: this.state.description,
-        amount: parseFloat(this.state.amount, 10) * 100,
-        createdAt: this.state.createdAt.valueOf(),
-        note: this.state.note
+        club: this.state.club,
+        people: this.state.people,
+        estimation: this.state.estimation,
+        moving: this.state.moving,
+        rejection: this.state.rejection,
+        freeText: this.state.freeText,
+        createdAt: moment().format(),
+        freeText: this.state.freeText
       });
     }
   };
@@ -62,35 +105,50 @@ export default class UpdateForm extends React.Component {
       <div>
         {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.onSubmit}>
-          <select value={this.state.club} onChange={e => {}}>
-            {this.props.clubs.map(club => (
-              <option value={club}>{club}</option>
+          <select value={this.state.club} onChange={this.onClubChange}>
+            <option value=''>Choose a Club</option>
+            {this.state.clubs.map(club => (
+              <option value={club} key={club}>
+                {club}
+              </option>
+            ))}
+          </select>
+          <select value={this.state.people} onChange={this.onPeopleChange}>
+            <option value=''>How many clubers are Q'ing?</option>
+            {this.state.peopleOptions.map(option => (
+              <option value={option} key={option}>
+                {option}
+              </option>
             ))}
           </select>
           <input
-            type='text'
-            placeholder='Expense Name'
-            value={this.state.description}
-            onChange={this.onDescriptionChange}
-            autoFocus
-          />
-          <input
             type='number'
-            placeholder='Amount'
-            value={this.state.amount}
-            onChange={this.onAmountChange}
+            placeholder='Waiting time (min)'
+            value={this.state.estimation}
+            onChange={this.onEstimationChange}
           />
-          <SingleDatePicker
-            date={this.state.createdAt}
-            onDateChange={this.onDateChange}
-            focused={this.state.focused}
-            onFocusChange={this.onFocusChange}
-            numberOfMonths={1}
-            isOutsideRange={() => false}
-          />
+          <select value={this.state.moving} onChange={this.onMovingChange}>
+            <option value=''>Q movement status</option>
+            {this.state.movingOptions.map(option => (
+              <option value={option} key={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+          <select
+            value={this.state.rejection}
+            onChange={this.onRejectionChange}
+          >
+            <option value=''>Rejection rate</option>
+            {this.state.rejectionOptions.map(option => (
+              <option value={option} key={option}>
+                {option}
+              </option>
+            ))}
+          </select>
           <textarea
-            placeholder='Add note to this expense'
-            value={this.state.note}
+            placeholder='Anything else? (ex. - line past spati / if you come now, I can use a beer)'
+            value={this.state.freeText}
             onChange={this.onNoteChange}
           ></textarea>
           <button>Add Update</button>

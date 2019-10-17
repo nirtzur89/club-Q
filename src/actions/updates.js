@@ -3,11 +3,11 @@ import uuid from 'uuid';
 //ADD_UPDATE
 export const addUpdate = ({
   club = '',
-  people = 0,
-  moving = true,
+  people = '',
+  moving = '',
   estimation = 0,
   freeText = '',
-  bouncers = '',
+  rejection = '',
   createdAt = undefined
 } = {}) => ({
   type: 'ADD_UPDATE',
@@ -18,7 +18,7 @@ export const addUpdate = ({
     moving,
     createdAt,
     estimation,
-    bouncers,
+    rejection,
     freeText
   }
 });
