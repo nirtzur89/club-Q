@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 const ClubsListItem = props => {
   return (
     <div>
-      <h3>{props.club}</h3>
-      <Link to='/'>club page</Link>
+      <Link to={`/clubs/${props.club}`}>
+        <h3>{props.club}</h3>
+      </Link>
     </div>
   );
 };

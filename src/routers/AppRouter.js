@@ -6,6 +6,7 @@ import AddUpdate from '../components/AddUpdate';
 import Dashboard from '../components/Dashboard';
 import Info from '../components/Info';
 import Clubs from '../components/Clubs';
+import ClubPage from '../components/ClubPage';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -14,7 +15,8 @@ const AppRouter = () => (
       <Switch>
         <Route path='/' component={Dashboard} exact={true} />
         <Route path='/add' component={AddUpdate} />
-        <Route path='/clubs' component={Clubs} />
+        <Route path='/clubs' component={Clubs} exact={true} />
+        <Route path='/clubs/:id' component={ClubPage} />
         <Route path='/info' component={Info} />
         <Route component={NotFound} />
       </Switch>
