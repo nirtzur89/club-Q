@@ -1,9 +1,10 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractTextPlugin = require('mini-css-extract-plugin');
 
 module.exports = env => {
   const isProduction = env === 'production';
-  const CSSExtract = new ExtractTextPlugin('styles.css');
+  const CSSExtract = new MiniCssExtractTextPlugin({ filename: 'styles.css' });
   return {
     entry: './src/app.js',
     output: {
@@ -19,9 +20,11 @@ module.exports = env => {
         },
         {
           test: /\.s?css$/,
-          use: CSSExtract.extract({
-            use: ['css-loader', 'sass-loader']
-          })
+          use: [
+            { loader: MiniCssExtractTextPlugin.loader },
+            { loader: 'css-loader', options: { sourceMap: true } },
+            { loader: 'sass-loader', options: { sourceMap: true } }
+          ]
         }
       ]
     },
@@ -34,3 +37,7 @@ module.exports = env => {
   };
 };
 // ['style-loader', 'css-loader', 'sass-loader']
+// ExtractTextPlugin.extract({
+//   fallback: 'style-loader',
+//   use: ['css-loader', 'sass-loader']
+// })
