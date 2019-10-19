@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/configureStore';
-import './styles/styles.scss';
 import AppRouter from './routers/AppRouter';
 import { Provider } from 'react-redux';
+
+import './styles/styles.scss';
 
 //redux imports
 import { addUpdate } from './actions/updates';
