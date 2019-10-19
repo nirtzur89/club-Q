@@ -18,18 +18,17 @@ store.subscribe(() => {
   console.log(visibleUpdates);
 });
 
-const updateOne = store.dispatch(
-  addUpdate({ people: 72000, club: 'Berghain', createdAt: 5000 })
+store.dispatch(addUpdate({ people: 72000, club: 'Berghain', createdAt: 5000 }));
+store.dispatch(
+  addUpdate({
+    people: 30,
+    club: 'Berghain',
+    createdAt: 500
+  })
 );
-const updateTwo = store.dispatch(
-  addUpdate({ people: 30000000, club: 'Berghain', createdAt: 500 })
-);
-const updateThree = store.dispatch(
-  addUpdate({ people: 50000, club: 'Kitkat', createdAt: -2500 })
-);
-const updateFour = store.dispatch(
-  addUpdate({ people: 1000, club: 'Renate', createdAt: 1000 })
-);
+store.dispatch(addUpdate({ people: 500000, club: 'Berghain', createdAt: 400 }));
+store.dispatch(addUpdate({ people: 50000, club: 'Kitkat', createdAt: -2500 }));
+store.dispatch(addUpdate({ people: 1000, club: 'Renate', createdAt: 1000 }));
 
 console.log(store.getState());
 

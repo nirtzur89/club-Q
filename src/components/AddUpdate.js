@@ -11,7 +11,7 @@ const AddUpdate = props => (
       clubs={props.clubs}
       onSubmit={update => {
         props.dispatch(addUpdate(update));
-        props.history.push('/');
+        props.history.push('/clubs');
       }}
     />
   </div>
