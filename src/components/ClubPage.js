@@ -12,7 +12,8 @@ const ClubPage = props => {
       <h2>Latest Updates from - {props.match.params.id}</h2>
       <LatestUpdateBox update={props.updates[0]} key={props.updates[0].id} />
       <h2>more updates:</h2>
-      {props.updates.map(update => {
+
+      {props.updates.slice(0, 6).map(update => {
         return update.id !== props.updates[0].id ? (
           <UpdateBox update={update} key={update.id} />
         ) : (
