@@ -18,7 +18,6 @@ export default class UpdateForm extends React.Component {
     moving: '',
     rejection: '',
     freeText: '',
-    createdAt: 0,
     error: '',
     clubs: [
       'BERGHAIN',
@@ -108,7 +107,6 @@ export default class UpdateForm extends React.Component {
         moving: this.state.moving,
         rejection: this.state.rejection,
         freeText: this.state.freeText,
-        createdAt: moment().format(),
         freeText: this.state.freeText
       });
     }

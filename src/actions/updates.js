@@ -16,7 +16,7 @@ export const addUpdate = ({
     club,
     people,
     moving,
-    createdAt,
+    createdAt: Date.now(),
     estimation,
     rejection,
     freeText

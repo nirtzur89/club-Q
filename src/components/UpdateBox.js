@@ -6,9 +6,16 @@ import moment from 'moment';
 const UpdateBox = props => {
   return (
     <div>
-      <h3>{props.update.club}</h3>
-      <p>{props.update.createdAt}</p>
-      <p>{props.update.estimation}</p>
+      <p>Updated: {moment(props.update.createdAt).fromNow()}</p>
+      <p>Estimated waiting time: {props.update.estimation}</p>
+      <p>People Q'ing: {props.update.people}</p>
+      {props.update.moving && <p>The Q is {props.update.moving}</p>}
+      {props.update.rejection && (
+        <p>Rejection status: {props.update.rejection}</p>
+      )}
+      {props.update.freeText && (
+        <p>Notes from Poster: {props.update.freeText}</p>
+      )}
     </div>
   );
 };
