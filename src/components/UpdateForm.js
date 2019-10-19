@@ -23,13 +23,28 @@ export default class UpdateForm extends React.Component {
     clubs: [
       'BERGHAIN',
       'KITKAT',
-      'RENATE',
       'SCHWUZ',
-      'RITTER-BUTZKE',
+      'RENATE',
       'GRIESMUELE',
-      'LAB-O-RATORY',
       'ABOUT-BLANK',
-      'KATER-BLAU'
+      'RITTER-BUTZKE',
+      'TRESOR',
+      'LAB-O-RATORY',
+      'KATER-BLAU',
+      'HOPPETOSSE',
+      'SISYPHOS',
+      'ELSE',
+      'GRETCHEN',
+      'WATERGATE',
+      'SUICIDE'
+    ],
+    estimationOptions: [
+      'No Wait',
+      '5-10 Minutes',
+      '10-30 Minutes',
+      '30 Minutes to 1 Hour',
+      '1 Hour to 2 Hours',
+      '2 Hours or longer'
     ],
     peopleOptions: [
       'No Q',
@@ -64,9 +79,7 @@ export default class UpdateForm extends React.Component {
   };
   onEstimationChange = e => {
     const estimation = e.target.value;
-    if (!estimation || estimation.match(/^\d{1,}?$/)) {
-      this.setState(() => ({ estimation }));
-    }
+    this.setState(() => ({ estimation }));
   };
   onMovingChange = e => {
     const moving = e.target.value;
@@ -121,12 +134,17 @@ export default class UpdateForm extends React.Component {
               </option>
             ))}
           </select>
-          <input
-            type='number'
-            placeholder='Waiting time (min)'
+          <select
             value={this.state.estimation}
             onChange={this.onEstimationChange}
-          />
+          >
+            <option value=''>How long do you think it'll take?</option>
+            {this.state.estimationOptions.map(option => (
+              <option value={option} key={option}>
+                {option}
+              </option>
+            ))}
+          </select>
           <select value={this.state.moving} onChange={this.onMovingChange}>
             <option value=''>Q movement status</option>
             {this.state.movingOptions.map(option => (

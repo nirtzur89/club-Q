@@ -17,7 +17,7 @@ const ClubPage = props => {
         return update.id !== props.updates[0].id ? (
           <UpdateBox update={update} key={update.id} />
         ) : (
-          <h1></h1>
+          <h1 key={update.id}></h1>
         );
       })}
     </div>
