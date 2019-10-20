@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/configureStore';
 import AppRouter from './routers/AppRouter';
 import { Provider } from 'react-redux';
+import './firebase/firebase';
 
 import './styles/styles.scss';
 
