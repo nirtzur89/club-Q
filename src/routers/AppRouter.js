@@ -10,7 +10,7 @@ import ClubPage from '../components/ClubPage';
 
 const AppRouter = () => (
   <BrowserRouter>
-    <div>
+    <div className='general'>
       <Header />
       <Switch>
         <Route path='/' component={Dashboard} exact={true} />

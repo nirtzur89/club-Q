@@ -5,10 +5,22 @@ import ExpenseListFilters from './ExpenseListFilters';
 
 const Dashboard = () => (
   <div>
-    <h1>Going Out?</h1>
-    <Link to='/clubs'>Check Q's</Link>
-    <h1>Allready Q'ing?</h1>
-    <Link to='/add'>Give us an update</Link>
+    <div className='dash container'>
+      <h1>Going Out?</h1>
+      <Link to='/clubs'>
+        <button type='button' className=' btn btn-pos btn-light btn-lg'>
+          Check Q's
+        </button>
+      </Link>
+    </div>
+    <div className='dash container'>
+      <h1>Allready Q'ing?</h1>
+      <Link to='/add'>
+        <button type='button' className=' btn btn-pos-2 btn-light btn-lg'>
+          Give us an update
+        </button>
+      </Link>
+    </div>
   </div>
 );
 

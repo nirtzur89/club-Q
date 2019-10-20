@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
 const Header = () => (
-  <div>
-    <h1>Club Q</h1>
+  <div className='navbar navbar-expand-lg'>
+    <h1 className='logo'>Club Q</h1>
     <NavLink to='/' activeClassName='active-nav' exact={true}>
       Home
     </NavLink>
