@@ -6,7 +6,6 @@ import getVisibleClubs from '../selectors/clubs';
 import ClubListFilter from './ClubListFilter';
 
 const ClubsList = props => {
-  console.log('testing123', props);
   return (
     <div>
       <h2>Clubs:</h2>
@@ -18,9 +17,15 @@ const ClubsList = props => {
 };
 
 const mapStateToProps = state => {
+  const distinct = (value, index, self) => {
+    return self.indexOf(value) === index;
+  };
+  const mapped = state.updates.map(update => update.club);
+  const distinctClubs = mapped.filter(distinct);
+
   return {
     updates: getVisibleUpdates(state.updates, state.filters),
-    clubs: getVisibleClubs(state.clubs, state.filters)
+    clubs: getVisibleClubs(distinctClubs, state.filters)
   };
 };
 

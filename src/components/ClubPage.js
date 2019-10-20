@@ -6,8 +6,8 @@ import UpdateBox from './UpdateBox';
 import LatestUpdateBox from './LatestUpdateBox';
 
 const ClubPage = props => {
-  console.log('show visible', props.updates);
-  const inPostTimeFrame = props.updates[0].createdAt > Date.now() - 86400;
+  const inPostTimeFrame = props.updates[0].createdAt > Date.now() - 17280000;
+  console.log('time', props.updates[0], Date.now());
   return (
     <div>
       <h2>Latest Updates from - {props.match.params.id}</h2>
@@ -46,7 +46,3 @@ const mapStateToProps = (state, props) => {
 };
 
 export default connect(mapStateToProps)(ClubPage);
-
-// : (
-//   <h1 key={'no posts'}>Nothing Posted in the last 24 hours</h1>
-// );

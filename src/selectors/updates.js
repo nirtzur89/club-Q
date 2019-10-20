@@ -2,7 +2,7 @@
 const getVisibleUpdates = (updates, { club }) => {
   return updates
     .filter(update => {
-      const textMatch = update.club.toLowerCase().includes(club.toLowerCase());
+      const textMatch = update.club.includes(club);
 
       return textMatch;
     })

@@ -1,27 +1,35 @@
 import React from 'react';
 import UpdateForm from './UpdateForm';
 import { connect } from 'react-redux';
-import { addUpdate } from '../actions/updates';
+import { startAddUpdate } from '../actions/updates';
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
-const AddUpdate = props => (
-  <div>
-    <h1>Add update</h1>
-    <UpdateForm
-      clubs={props.clubs}
-      onSubmit={update => {
-        props.dispatch(addUpdate(update));
-        props.history.push('/clubs');
-      }}
-    />
-  </div>
-);
-
-const mapStateToProps = state => {
-  return {
-    // updates: getVisibleUpdates(state.updates, state.filters),
-    clubs: state.clubs
+export class AddUpdate extends React.Component {
+  onSubmit = update => {
+    this.props.startAddUpdate(update);
+    this.props.history.push('/clubs');
   };
-};
+  render() {
+    return (
+      <div>
+        <h1>Add Update</h1>
+        <UpdateForm onSubmit={this.onSubmit} />
+      </div>
+    );
+  }
+}
 
-export default connect(mapStateToProps)(AddUpdate);
+// const mapStateToProps = state => {
+//   return {
+//     // updates: getVisibleUpdates(state.updates, state.filters),
+//     clubs: state.clubs
+//   };
+// };
+const mapDispatchToProps = dispatch => ({
+  startAddUpdate: update => dispatch(startAddUpdate(update))
+});
+
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(AddUpdate);

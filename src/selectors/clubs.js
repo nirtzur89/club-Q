@@ -1,3 +1,5 @@
+import { database } from 'firebase';
+
 //get filtered object
 const getVisibleClubs = (clubs, filter) => {
   return clubs

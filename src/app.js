@@ -8,7 +8,8 @@ import './firebase/firebase';
 import './styles/styles.scss';
 
 //redux imports
-import { addUpdate } from './actions/updates';
+import { startSetUpdates } from './actions/updates';
+import { startSetClubs, addClubs } from './actions/clubs';
 
 import getVisibleUpdates from './selectors/updates';
 
@@ -20,23 +21,26 @@ store.subscribe(() => {
   console.log(visibleUpdates);
 });
 
-store.dispatch(addUpdate({ people: 72000, club: 'Berghain', createdAt: 5000 }));
-store.dispatch(
-  addUpdate({
-    people: 30,
-    club: 'Berghain',
-    createdAt: 500
-  })
-);
-store.dispatch(addUpdate({ people: 500000, club: 'Berghain', createdAt: 400 }));
-store.dispatch(addUpdate({ people: 50000, club: 'Kitkat', createdAt: -2500 }));
-store.dispatch(addUpdate({ people: 1000, club: 'Renate', createdAt: 1000 }));
+// store.dispatch(addUpdate({ people: 72000, club: 'Berghain', createdAt: 5000 }));
+// store.dispatch(
+//   addUpdate({
+//     people: 30,
+//     club: 'Berghain',
+//     createdAt: 500
+//   })
+// );
+// store.dispatch(addUpdate({ people: 500000, club: 'Berghain', createdAt: 400 }));
+// store.dispatch(addUpdate({ people: 50000, club: 'Kitkat', createdAt: -2500 }));
+// store.dispatch(addUpdate({ people: 1000, club: 'Renate', createdAt: 1000 }));
 
-console.log(store.getState());
+// console.log(store.getState());
+ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 
-ReactDOM.render(
-  <Provider store={store}>
-    <AppRouter />
-  </Provider>,
-  document.getElementById('app')
-);
+store.dispatch(startSetUpdates()).then(() => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>,
+    document.getElementById('app')
+  );
+});

@@ -12,9 +12,19 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-firebase
-  .database()
-  .ref()
-  .set({
-    name: 'nir tzur'
-  });
+const database = firebase.database();
+
+export { firebase, database as default };
+
+// firebase
+//   .database()
+//   .ref()
+//   .set({
+//     name: 'nir tzur'
+//   })
+//   .then(() => {
+//     console.log('data added to firebase');
+//   })
+//   .catch(e => {
+//     console.log('something went terribly wrong', e);
+//   });
