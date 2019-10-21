@@ -7,6 +7,7 @@ const ClubListFilter = props => (
     <input
       type='text'
       value={props.filters.club}
+      placeholder='Look for club'
       onChange={e => {
         props.dispatch(setClubFilter(e.target.value));
       }}

@@ -6,7 +6,7 @@ const ClubsListItem = props => {
   return (
     <div>
       <Link to={`/clubs/${props.club}`}>
-        <h3>{props.club}</h3>
+        <button className='club-button'>{props.club}</button>
       </Link>
     </div>
   );

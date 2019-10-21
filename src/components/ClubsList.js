@@ -7,11 +7,16 @@ import ClubListFilter from './ClubListFilter';
 
 const ClubsList = props => {
   return (
-    <div>
-      <h2>Clubs:</h2>
-      {props.clubs.map(club => (
-        <ClubsListItem club={club} key={club} />
-      ))}
+    <div className='clubs-component'>
+      <div className='title'>
+        <h2 className='title-name'>Clubs:</h2>
+        <ClubListFilter className='title-filter' />
+      </div>
+      <div className='clubs'>
+        {props.clubs.map(club => (
+          <ClubsListItem className='club-item' club={club} key={club} />
+        ))}
+      </div>
     </div>
   );
 };

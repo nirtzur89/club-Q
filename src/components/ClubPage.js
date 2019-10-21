@@ -6,15 +6,27 @@ import UpdateBox from './UpdateBox';
 import LatestUpdateBox from './LatestUpdateBox';
 
 const ClubPage = props => {
-  const inPostTimeFrame = props.updates[0].createdAt > Date.now() - 17280000;
-  console.log('time', props.updates[0], Date.now());
+  const inPostTimeFrame = props.updates
+    ? props.updates[0].createdAt > Date.now() - 17280000
+    : false;
+  const inMoreTimeFrame =
+    props.updates[props.updates.length - 1].createdAt > Date.now() - 17280000;
+  console.log('time', props.updates.length - 1);
   return (
     <div>
       <h2>Latest Updates from - {props.match.params.id}</h2>
-      {inPostTimeFrame && (
-        <LatestUpdateBox update={props.updates[0]} key={props.updates[0].id} />
-      )}
       {inPostTimeFrame ? (
+        <LatestUpdateBox update={props.updates[0]} key={props.updates[0].id} />
+      ) : (
+        <div>
+          <h2>No Updates from the past 24 hours</h2>
+          <Link to='/add'>
+            {' '}
+            <button>Give Us an Update</button>{' '}
+          </Link>
+        </div>
+      )}
+      {inMoreTimeFrame && (
         <div>
           <h2>more updates:</h2>
           {props.updates.slice(0, 6).map(update => {
@@ -24,14 +36,6 @@ const ClubPage = props => {
               )
             );
           })}
-        </div>
-      ) : (
-        <div>
-          <h2>No Updates from the past 24 hours</h2>
-          <Link to='/add'>
-            {' '}
-            <button>Give Us an Update</button>{' '}
-          </Link>
         </div>
       )}
     </div>
