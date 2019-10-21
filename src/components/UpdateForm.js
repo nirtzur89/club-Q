@@ -1,7 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import { SingleDatePicker } from 'react-dates';
-import 'react-dates/lib/css/_datepicker.css';
 
 const now = moment();
 console.log('moment', now.format('MMM Do, YYYY'));
@@ -113,61 +111,103 @@ export default class UpdateForm extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div className='on-large'>
         {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.onSubmit}>
-          <select value={this.state.club} onChange={this.onClubChange}>
-            <option value=''>Choose a Club</option>
-            {this.state.clubs.map(club => (
-              <option value={club} key={club}>
-                {club}
-              </option>
-            ))}
-          </select>
-          <select value={this.state.people} onChange={this.onPeopleChange}>
-            <option value=''>How many clubers are Q'ing?</option>
-            {this.state.peopleOptions.map(option => (
-              <option value={option} key={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-          <select
-            value={this.state.estimation}
-            onChange={this.onEstimationChange}
-          >
-            <option value=''>How long do you think it'll take?</option>
-            {this.state.estimationOptions.map(option => (
-              <option value={option} key={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-          <select value={this.state.moving} onChange={this.onMovingChange}>
-            <option value=''>Q movement status</option>
-            {this.state.movingOptions.map(option => (
-              <option value={option} key={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-          <select
-            value={this.state.rejection}
-            onChange={this.onRejectionChange}
-          >
-            <option value=''>Rejection rate</option>
-            {this.state.rejectionOptions.map(option => (
-              <option value={option} key={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-          <textarea
-            placeholder='Anything else? (ex. - line past spati / if you come now, I can use a beer)'
-            value={this.state.freeText}
-            onChange={this.onNoteChange}
-          ></textarea>
-          <button>Add Update</button>
+          <div className='form-section'>
+            <label className='form-label'>Choose a club</label>
+            <select
+              className='form-selector'
+              value={this.state.club}
+              onChange={this.onClubChange}
+            >
+              <option value=''>Choose a Club</option>
+              {this.state.clubs.map(club => (
+                <option value={club} key={club}>
+                  {club}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className='form-section'>
+            <label className='form-label'>
+              How many clubers are queueing now?
+            </label>
+            <select
+              className='form-selector'
+              value={this.state.people}
+              onChange={this.onPeopleChange}
+            >
+              <option value=''>How Many</option>
+              {this.state.peopleOptions.map(option => (
+                <option value={option} key={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className='form-section'>
+            <label className='form-label'>
+              How long do you think it'll take?
+            </label>
+            <select
+              className='form-selector'
+              value={this.state.estimation}
+              onChange={this.onEstimationChange}
+            >
+              <option value=''>Time</option>
+              {this.state.estimationOptions.map(option => (
+                <option value={option} key={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className='form-section'>
+            <label className='form-label'>How is the queue Moving?</label>
+            <select
+              className='form-selector'
+              value={this.state.moving}
+              onChange={this.onMovingChange}
+            >
+              <option value=''>Choose</option>
+              {this.state.movingOptions.map(option => (
+                <option value={option} key={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className='form-section'>
+            <label className='form-label'>
+              How's the rejection rate tonight?
+            </label>
+            <select
+              className='form-selector'
+              value={this.state.rejection}
+              onChange={this.onRejectionChange}
+            >
+              <option value=''>Choose</option>
+              {this.state.rejectionOptions.map(option => (
+                <option value={option} key={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className='form-section'>
+            <label className='form-label'>Anything to add?</label>
+            <textarea
+              className='form-selector'
+              placeholder='Anything else? (ex. - line past spati / if you come now, I can use a beer)'
+              value={this.state.freeText}
+              onChange={this.onNoteChange}
+            ></textarea>
+          </div>
+          <div className='form-section'>
+            <button className='form-selector'>Add Update</button>
+          </div>
         </form>
       </div>
     );

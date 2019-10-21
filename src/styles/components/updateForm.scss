@@ -1,2 +1,28 @@
 @media (min-width: 600px) {
+  .on-large {
+    height: 80%;
+    width: 60%;
+    margin: auto;
+    background-color: fade-out($color: white, $amount: 0.5);
+    color: black;
+  }
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3%;
+}
+
+.form-label {
+  margin: auto;
+}
+
+.form-selector {
+  width: 80%;
+  margin: auto;
+}
+
+.form-selector:hover {
+  background-color: fade-out($color: #6a9e46, $amount: 0.5);
 }
