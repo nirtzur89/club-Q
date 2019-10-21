@@ -1,12 +1,8 @@
-.clubs-component {
-  margin: 1% 5% 0 5%;
-  font-family: 'Baloo Bhai', cursive;
-}
-
 .title {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 5% 1%;
 }
 
 .title-name {
@@ -15,6 +11,7 @@
 
 .title-filter {
   flex: 1;
+  text-align: center;
 }
 
 @media (min-width: 600px) {
@@ -25,23 +22,21 @@
   }
   .club-button {
     flex: 1 0 30%;
-    margin: 5%;
+    margin-top: 5%;
     height: 100px;
-    width: 150px;
-    background-color: fade-out($color: white, $amount: 0.25);
-    border-radius: 25% 10%;
+    width: 250px;
+    background-color: fade-out($color: white, $amount: 0.2);
+    border-radius: 20% 10%;
     border: solid;
   }
 }
 
-.club-item {
-}
 @media (max-width: 600px) {
   .club-button {
     margin: 1% 0 0 15%;
     height: 50px;
     width: 70%;
-    background-color: fade-out($color: white, $amount: 0.25);
+    background-color: fade-out($color: white, $amount: 0.2);
     border-radius: 25% 10%;
     border: solid;
   }

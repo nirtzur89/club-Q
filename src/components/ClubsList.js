@@ -7,7 +7,7 @@ import ClubListFilter from './ClubListFilter';
 
 const ClubsList = props => {
   return (
-    <div className='clubs-component'>
+    <div className='base-component'>
       <div className='title'>
         <h2 className='title-name'>Clubs:</h2>
         <ClubListFilter className='title-filter' />
