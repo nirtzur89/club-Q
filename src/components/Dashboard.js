@@ -4,7 +4,7 @@ import ExpensesList from './ExpensesList';
 import ExpenseListFilters from './ExpenseListFilters';
 
 const Dashboard = () => (
-  <div>
+  <div className='base-component'>
     <div className='dash container'>
       <h1>Going Out?</h1>
       <Link to='/clubs'>

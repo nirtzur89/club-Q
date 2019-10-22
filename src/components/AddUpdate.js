@@ -13,6 +13,7 @@ export class AddUpdate extends React.Component {
     return (
       <div className='base-component'>
         <h1>Add Update</h1>
+        <h6>required - *</h6>
         <UpdateForm onSubmit={this.onSubmit} />
       </div>
     );

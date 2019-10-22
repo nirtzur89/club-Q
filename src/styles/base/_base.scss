@@ -18,13 +18,15 @@ button:disabled {
 
 .general {
   background: url('/images/berghain.jpg');
+  background-color: black;
   background-size: cover;
-  height: 100vh;
   width: 100vw;
   color: white;
+  height: 100vh;
 }
 
 .base-component {
-  margin: 1% 5% 0 5%;
+  width: 90vw;
   font-family: 'Baloo Bhai', cursive;
+  margin: auto;
 }

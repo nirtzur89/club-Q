@@ -7,6 +7,7 @@ import Dashboard from '../components/Dashboard';
 import Info from '../components/Info';
 import Clubs from '../components/Clubs';
 import ClubPage from '../components/ClubPage';
+import Footer from '../components/Footer';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -20,6 +21,7 @@ const AppRouter = () => (
         <Route path='/info' component={Info} />
         <Route component={NotFound} />
       </Switch>
+      <Footer />
     </div>
   </BrowserRouter>
 );

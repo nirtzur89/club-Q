@@ -115,7 +115,7 @@ export default class UpdateForm extends React.Component {
         {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.onSubmit}>
           <div className='form-section'>
-            <label className='form-label'>Choose a club</label>
+            <label className='form-label'>Choose a club *</label>
             <select
               className='form-selector'
               value={this.state.club}
@@ -131,7 +131,7 @@ export default class UpdateForm extends React.Component {
           </div>
           <div className='form-section'>
             <label className='form-label'>
-              How many clubers are queueing now?
+              How many clubers are queueing now? *
             </label>
             <select
               className='form-selector'
@@ -149,7 +149,7 @@ export default class UpdateForm extends React.Component {
 
           <div className='form-section'>
             <label className='form-label'>
-              How long do you think it'll take?
+              How long do you think it'll take? *
             </label>
             <select
               className='form-selector'

@@ -32,10 +32,20 @@
 }
 
 @media (max-width: 600px) {
+  .clubs {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70vw;
+    height: 60vh;
+    margin: auto;
+    flex-basis: auto;
+  }
   .club-button {
-    margin: 1% 0 0 15%;
-    height: 50px;
-    width: 70%;
+    flex: 1 0 80%;
+    height: 10vh;
+    width: 30vw;
     background-color: fade-out($color: white, $amount: 0.2);
     border-radius: 25% 10%;
     border: solid;
