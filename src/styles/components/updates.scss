@@ -15,8 +15,11 @@
   border-radius: 15%;
 }
 
-.update-box {
+.info {
+  background-color: fade-out($color: white, $amount: 0.3);
+  color: black;
 }
 
-.update-content {
+.info-header {
+  margin-top: 5%;
 }

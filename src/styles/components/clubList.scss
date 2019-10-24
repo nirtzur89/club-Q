@@ -4,8 +4,7 @@
   justify-content: space-between;
   margin: 5% 1%;
 }
-
-.title-name {
+jhg .title-name {
   flex: 2;
 }
 
@@ -14,40 +13,42 @@
   text-align: center;
 }
 
-@media (min-width: 600px) {
-  .clubs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  .club-button {
-    flex: 1 0 30%;
-    margin-top: 5%;
-    height: 100px;
-    width: 250px;
-    background-color: fade-out($color: white, $amount: 0.2);
-    border-radius: 20% 10%;
-    border: solid;
-  }
+// @media (min-width: 600px) {
+// }
+.clubs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 15%;
 }
 
-@media (max-width: 600px) {
-  .clubs {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 70vw;
-    height: 60vh;
-    margin: auto;
-    flex-basis: auto;
-  }
-  .club-button {
-    flex: 1 0 80%;
-    height: 10vh;
-    width: 30vw;
-    background-color: fade-out($color: white, $amount: 0.2);
-    border-radius: 25% 10%;
-    border: solid;
-  }
+.club-button {
+  background-color: fade-out($color: white, $amount: 0.2);
+  border-radius: 20% 10%;
+  border: solid;
+  height: 5rem;
+  width: 10rem;
+  text-align: center;
+  margin: auto;
 }
+
+// @media (max-width: 600px) {
+//   .clubs {
+//     display: flex;
+//     flex-wrap: wrap;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     width: 70vw;
+//     height: 60vh;
+//     margin: auto;
+//     flex-basis: auto;
+//   }
+//   .club-button {
+//     flex: 1 0 80%;
+//     height: 10vh;
+//     width: 30vw;
+//     background-color: fade-out($color: white, $amount: 0.2);
+//     border-radius: 25% 10%;
+//     border: solid;
+//   }
+// }
