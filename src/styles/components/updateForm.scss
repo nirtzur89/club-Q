@@ -9,6 +9,9 @@
     padding: 2%;
     justify-content: space-between;
   }
+  .form-section {
+    margin: 3%;
+  }
 }
 @media (max-width: 600px) {
   .on-large {
@@ -36,4 +39,8 @@
 
 .form-selector:hover {
   background-color: fade-out($color: #6a9e46, $amount: 0.5);
+}
+
+.add-btn {
+  background: #60b566;
 }

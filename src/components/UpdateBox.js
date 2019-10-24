@@ -6,7 +6,7 @@ import moment from 'moment';
 const UpdateBox = props => {
   console.log('to show', props);
   return (
-    <div>
+    <div className='latest-box'>
       <p>Updated: {moment(props.update.createdAt).fromNow()}</p>
       <p>Estimated waiting time: {props.update.estimation}</p>
       <p>People Q'ing: {props.update.people}</p>

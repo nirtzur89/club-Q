@@ -12,8 +12,10 @@ const ClubPage = props => {
   const mapped = props.updates.slice(1, 6).map(update => update);
 
   return (
-    <div>
-      <h2>Latest Updates from - {props.match.params.id}</h2>
+    <div className='update-page base-component'>
+      <h2 className='update-page-title'>
+        Showing Updates for {props.match.params.id}
+      </h2>
       {inPostTimeFrame ? (
         <div>
           <LatestUpdateBox

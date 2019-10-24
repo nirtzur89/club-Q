@@ -5,8 +5,8 @@ import moment from 'moment';
 
 const LatestUpdateBox = props => {
   return (
-    <div>
-      <h3>{props.update.club}'s latest update:</h3>
+    <div className='latest-box'>
+      <h3>latest update:</h3>
       <p>Updated: {moment(props.update.createdAt).fromNow()}</p>
       <p>Estimated waiting time: {props.update.estimation}</p>
       <p>People Q'ing: {props.update.people}</p>

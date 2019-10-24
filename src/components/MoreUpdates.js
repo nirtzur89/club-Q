@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import LatestUpdateBox from './LatestUpdateBox';
+import UpdateBox from './UpdateBox';
 
 const MoreUpdates = props => {
   return (
     <div>
       {props.updates.map(update => (
-        <LatestUpdateBox update={update} key={update.id} />
+        <UpdateBox update={update} key={update.id} />
       ))}
     </div>
   );

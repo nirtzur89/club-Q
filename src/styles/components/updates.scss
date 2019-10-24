@@ -1,0 +1,22 @@
+.update-page {
+  text-align: center;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+
+.update-page-title {
+  margin: 3% 0;
+}
+
+.latest-box {
+  background-color: fade-out($color: white, $amount: 0.5);
+  color: black;
+  border-radius: 15%;
+}
+
+.update-box {
+}
+
+.update-content {
+}
