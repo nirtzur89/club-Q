@@ -2,21 +2,31 @@ import React from 'react';
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import getVisibleUpdates from '../selectors/updates';
-import UpdateBox from './UpdateBox';
+import MoreUpdates from './MoreUpdates';
 import LatestUpdateBox from './LatestUpdateBox';
 
 const ClubPage = props => {
   const inPostTimeFrame = props.updates
     ? props.updates[0].createdAt > Date.now() - 17280000
     : false;
-  const inMoreTimeFrame =
-    props.updates[props.updates.length - 1].createdAt > Date.now() - 17280000;
-  console.log('time', props.updates.length - 1);
+  const mapped = props.updates.slice(1, 6).map(update => update);
+
   return (
     <div>
       <h2>Latest Updates from - {props.match.params.id}</h2>
       {inPostTimeFrame ? (
-        <LatestUpdateBox update={props.updates[0]} key={props.updates[0].id} />
+        <div>
+          <LatestUpdateBox
+            update={props.updates[0]}
+            key={props.updates[0].id}
+          />
+          {mapped.length > 1 && (
+            <div>
+              <h2>more updates:</h2>
+              <MoreUpdates updates={mapped} />
+            </div>
+          )}
+        </div>
       ) : (
         <div>
           <h2>No Updates from the past 24 hours</h2>
@@ -24,18 +34,6 @@ const ClubPage = props => {
             {' '}
             <button>Give Us an Update</button>{' '}
           </Link>
-        </div>
-      )}
-      {inMoreTimeFrame && (
-        <div>
-          <h2>more updates:</h2>
-          {props.updates.slice(0, 6).map(update => {
-            return (
-              update.id !== props.updates[0].id && (
-                <UpdateBox update={update} key={update.id} />
-              )
-            );
-          })}
         </div>
       )}
     </div>

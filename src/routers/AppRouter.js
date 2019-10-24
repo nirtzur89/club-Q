@@ -11,7 +11,7 @@ import Footer from '../components/Footer';
 
 const AppRouter = () => (
   <BrowserRouter>
-    <div className='general'>
+    <div>
       <Header />
       <Switch>
         <Route path='/' component={Dashboard} exact={true} />

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 const UpdateBox = props => {
+  console.log('to show', props);
   return (
     <div>
       <p>Updated: {moment(props.update.createdAt).fromNow()}</p>
