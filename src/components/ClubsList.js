@@ -6,6 +6,25 @@ import getVisibleClubs from '../selectors/clubs';
 import ClubListFilter from './ClubListFilter';
 
 const ClubsList = props => {
+  const theClubs = [
+    'BERGHAIN',
+    'KITKAT',
+    'SCHWUZ',
+    'RENATE',
+    'GRIESMUELE',
+    'ABOUT-BLANK',
+    'RITTER-BUTZKE',
+    'TRESOR',
+    'LAB-O-RATORY',
+    'KATER-BLAU',
+    'HOPPETOSSE',
+    'SISYPHOS',
+    'ELSE',
+    'GRETCHEN',
+    'WATERGATE',
+    'SUICIDE'
+  ];
+  console.log('props', props);
   return (
     <div className='base-component'>
       <div className='title'>
@@ -13,7 +32,7 @@ const ClubsList = props => {
         <ClubListFilter className='title-filter' />
       </div>
       <div className='clubs'>
-        {props.clubs.map(club => (
+        {theClubs.map(club => (
           <ClubsListItem className='club-item' club={club} key={club} />
         ))}
       </div>
