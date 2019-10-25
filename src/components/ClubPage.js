@@ -6,9 +6,10 @@ import MoreUpdates from './MoreUpdates';
 import LatestUpdateBox from './LatestUpdateBox';
 
 const ClubPage = props => {
-  const inPostTimeFrame = props.updates
-    ? props.updates[0].createdAt > Date.now() - 17280000
-    : false;
+  const inPostTimeFrame =
+    props.updates.length > 0
+      ? props.updates[0].createdAt > Date.now() - 86400000
+      : false;
   const mapped = props.updates.slice(1, 6).map(update => update);
 
   return (
