@@ -7,7 +7,6 @@ console.log('moment', now.format('MMM Do, YYYY'));
 export default class UpdateForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
   state = {
     club: '',
@@ -22,7 +21,7 @@ export default class UpdateForm extends React.Component {
       'KITKAT',
       'SCHWUZ',
       'RENATE',
-      'GRIESMUELE',
+      'GRIESSMUEHLE',
       'ABOUT-BLANK',
       'RITTER-BUTZKE',
       'TRESOR',

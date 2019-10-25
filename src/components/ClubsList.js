@@ -11,7 +11,7 @@ const ClubsList = props => {
     'KITKAT',
     'SCHWUZ',
     'RENATE',
-    'GRIESMUELE',
+    'GRIESSMUEHLE',
     'ABOUT-BLANK',
     'RITTER-BUTZKE',
     'TRESOR',
