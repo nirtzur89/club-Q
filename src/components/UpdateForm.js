@@ -205,7 +205,9 @@ export default class UpdateForm extends React.Component {
             ></textarea>
           </div>
           <div className='form-section'>
-            <button className='form-selector add-btn'>Add Update</button>
+            <button className='form-selector btn btn-light btn-lg'>
+              Add Update
+            </button>
           </div>
         </form>
       </div>

@@ -35,7 +35,9 @@ const ClubPage = props => {
           <h2>No Updates from the past 24 hours</h2>
           <Link to='/add'>
             {' '}
-            <button>Give Us an Update</button>{' '}
+            <button className='btn btn-light btn-lg'>
+              Give Us an Update
+            </button>{' '}
           </Link>
         </div>
       )}
